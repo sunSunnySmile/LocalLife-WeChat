@@ -1,0 +1,38 @@
+/**index.wxss**/
+
+.slide {
+    height: 380rpx;
+}
+
+swiper-item image {
+    height: 100%;
+    width: 100%;
+}
+
+.grids {
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+}
+
+.grids .item {
+    display: flex;
+    width: 33.33333%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 288rpx;
+    border-bottom: 1px solid #eee;
+    border-right: 1px solid #eee;
+    box-sizing: border-box;
+}
+
+.grids .item image {
+    width: 70rpx;
+    height: 70rpx;
+    margin-bottom: 30rpx;
+}
+
+.grids .item text {
+    font-size: 28rpx;
+}

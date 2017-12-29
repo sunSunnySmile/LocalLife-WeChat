@@ -1,0 +1,14 @@
+<!--pages/index/index.wxml-->
+<swiper class="slide" indicator-dots="true" autoplay="true" interval="2000" duration="800" circular='true'>
+    <swiper-item wx:for="{{slides}}" wx:key="{{id}}">
+        <image src="{{item.image}}" />
+    </swiper-item>
+   
+</swiper>
+<view class='grids'>
+      <navigator url="/pages/list/list?cat={{item.id}}" class="item" wx:for="{{categories}}" wx:key="{{id}}">
+        <image src="{{item.icon}}"></image>
+        <text>{{item.name}}</text>
+    </navigator>
+   
+</view>
