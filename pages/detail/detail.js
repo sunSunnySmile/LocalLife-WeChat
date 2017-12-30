@@ -1,48 +1,41 @@
-// pages/list/list.js
+// pages/detail/detail.js
 const fetch = require("../../utils/fetch.js");
 Page({
+
     /**
      * 页面的初始数据
      */
     data: {
-        category: {},
-        shops: []
+        shop: {}
     },
 
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad: function(options) {
-        // console.log(options.cat); //获取的只是一个id
-        fetch(`categories/${options.cat}`)
-            .then(
-                res => {
-                    this.setData({
-                        category: res.data
+        // console.log(options);
+        fetch(`shops/${options.item}`)
+            .then(res => {
+                // console.log(res);
+                this.setData({
+                        shop: res.data
                     })
-                    wx.setNavigationBarTitle({
-                        'title': this.data.category.name
-                    })
-                    return fetch(`categories/${options.cat}/shops`, { _page: 1, _limit: 10 })
+                    //修改一下标题栏
+                wx.setNavigationBarTitle({
+                    title: res.data.name,
                 })
-            .then(
-                res => {
-                    this.setData({
-                        shops: res.data
-                    })
-                }
-            )
+            })
+
+
+
+
     },
 
     /**
      * 生命周期函数--监听页面初次渲染完成
      */
     onReady: function() {
-        if (this.data.category.name) {
-            wx.setNavigationBarTitle({
-                title: this.data.category.name
-            })
-        }
+
     },
 
     /**
