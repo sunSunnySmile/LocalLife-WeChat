@@ -3,7 +3,7 @@
   <icon type="search" size="15"/>
 </view>
 <view class="cells">
-  <navigator url="../../pages/detail/detail?item={{item.id}}" class="item" wx:for="{{shops}}" wx:key="*this">
+  <navigator url="../../pages/detail/detail?item={{item.id}}" class="item" wx:for="{{shops}}" wx:key="{{*this}}">
     <image src="{{item.images[0]}}" mode="aspectFill"/>
     <view class="meta">
       <text class="name">{{item.name}}</text>
@@ -14,6 +14,9 @@
     <view class="score">{{item.score}}</view>
   </navigator>
 </view>
-<view class="loadmore loading">
+<view wx:if="{{hasMore}}" class="loadmore loading">
   loading...
+</view>
+<view wx:else="{{hasMore}}">
+   已经木有数据啦！！！  
 </view>
